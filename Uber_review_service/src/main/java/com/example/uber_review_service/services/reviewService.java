@@ -17,13 +17,12 @@ public class reviewService implements CommandLineRunner {
 
 
 
-
     @Override
     public void run(String... args) throws Exception {
-        Review review = Review.builder().content("amazing ride 2").rating(3.0).build();
+
+        Review review = Review.builder().content("amazing ride 3").rating(3.0).build();
         System.out.println(review.getString());
        reviewRepository.save(review);
-        
         System.out.println("******");
     }
 }
