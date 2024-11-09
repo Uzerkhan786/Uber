@@ -12,5 +12,4 @@ public class DriverReview extends Review  {
     private  String driverReview;
     private Double rating;
 
-
 }

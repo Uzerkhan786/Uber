@@ -15,7 +15,7 @@ import java.util.Date;
 @MappedSuperclass
 public class BaseModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
