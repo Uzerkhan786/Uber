@@ -10,6 +10,7 @@ import lombok.*;
 @Getter
 @Setter
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Review extends BaseModel {
 
     @Column(nullable = false)
@@ -18,7 +19,7 @@ public class Review extends BaseModel {
 
 
     public String getString(){
-        return this.content+" "+this.rating;
+        return this.content+" "+this.rating+" ";
     }
 
 }
