@@ -17,7 +17,6 @@ public class Review extends BaseModel {
     private String content;
     private Double rating;
 
-
     public String getString(){
         return this.content+" "+this.rating+" ";
     }
