@@ -88,8 +88,8 @@ public class reviewService implements CommandLineRunner {
 //            System.out.println(bi.getStartBookingDate());
 //        }
 
-        List<Driver>d=driverRepository.listOfDriver("Musa");
-        Driver di=driverRepository.findByDriverName(3L);
+//        List<Driver>d=driverRepository.listOfDriver("Musa");
+//        Driver di=driverRepository.findByDriverName(3L);
 //        List<Booking>bi=di.getBookings();
 //        for(Booking b:bi){
 //            System.out.println(b.getId());
@@ -101,17 +101,22 @@ public class reviewService implements CommandLineRunner {
 //            }
 //        }
 
-        List<Long>Ids=new ArrayList<>(Arrays.asList(1L,3L));
-        List<Driver>drivers=driverRepository.findAllByIdIn(Ids);
-
-        for(Driver driver:drivers){
-            List<Booking>bookings=driver.getBookings();
-           bookings.forEach(booking-> System.out.println(booking.getId()));
-        }
+//        List<Long>Ids=new ArrayList<>(Arrays.asList(1L,3L));
+//        List<Driver>drivers=driverRepository.findAllByIdIn(Ids);
+//
+//        for(Driver driver:drivers){
+//            List<Booking>bookings=driver.getBookings();
+//           bookings.forEach(booking-> System.out.println(booking.getId()));
+//        }
         //List<Booking>bookings=bookingRepository.findAllByDriverIn(driversIds);
 //        for(Booking booking:bookings){
 //            System.out.println(booking.getId());
 //        }
+
+
+
+        List<Review>r=reviewRepository.findAllByBookingId(2L);
+        System.out.println(r.size());
 
 
 

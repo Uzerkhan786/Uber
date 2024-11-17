@@ -16,7 +16,9 @@ public class Review extends BaseModel {
     @Column(nullable = false)
     private String content;
     private Double rating;
-
+   @OneToOne
+   @JoinColumn(name = "booking_id",referencedColumnName = "id")
+    private Booking booking;
     public String getString(){
         return this.content+" "+this.rating+" ";
     }

@@ -14,8 +14,8 @@ import java.util.Date;
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 public class Booking extends BaseModel {
-//    @OneToOne(cascade = CascadeType.ALL)
-//    private  Review review;
+    @OneToOne(mappedBy = "booking", cascade = CascadeType.ALL)
+    private  Review review;
 @Enumerated(EnumType.STRING)
 private BookingStatus status;
     @Temporal(TemporalType.TIMESTAMP)
