@@ -6,29 +6,39 @@ import jakarta.transaction.Transactional;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 
-import java.beans.Transient;
 import java.util.*;
 
 @Service
-public class reviewService implements CommandLineRunner {
+public class ReviewService implements CommandLineRunner {
 
     private final ReviewRepository reviewRepository;
     private final BookingRepository bookingRepository;
     private final StudentRepository studentRepository;
     private final CourseRepository courseRepository;
     private final DriverRepository driverRepository;
+    private PassengerRepository passengerRepository;
 
-    public reviewService(ReviewRepository reviewRepository, BookingRepository bookingRepository,
-                         StudentRepository studentRepository, CourseRepository courseRepository, DriverRepository driverRepository) {
+    public ReviewService(ReviewRepository reviewRepository, BookingRepository bookingRepository,
+                         StudentRepository studentRepository, CourseRepository courseRepository,
+                         DriverRepository driverRepository, PassengerRepository passengerRepository) {
         this.reviewRepository = reviewRepository;
         this.bookingRepository = bookingRepository;
         this.studentRepository = studentRepository;
         this.courseRepository = courseRepository;
         this.driverRepository = driverRepository;
+        this.passengerRepository = passengerRepository;
     }
 
 
-
+    public Optional<Review> findReviewById(Long id) {
+        return reviewRepository.findById(id);
+    }
+    public Review createReview(Review review) {
+        return reviewRepository.save(review);
+    }
+    public List<Review> findAllReviews() {
+        return reviewRepository.findAll();
+    }
     @Override
     @Transactional
     public void run(String... args) throws Exception {
@@ -115,10 +125,23 @@ public class reviewService implements CommandLineRunner {
 
 
 
-        List<Review>r=reviewRepository.findAllByBookingId(2L);
-        System.out.println(r.size());
+//        List<Review>r=reviewRepository.findAllByBookingId(2L);
+//        System.out.println(r.size());
 
 
+
+//        Optional<Driver> driver=driverRepository.findById(1L);
+//        Optional<Passenger> passenger=passengerRepository.findById(1L);
+//        Booking booking=Booking.builder().
+//                startBookingDate(new Date()).
+//                endBookingDate(new Date()).
+//                status(BookingStatus.PENDING).
+//                driver(driver.get()).
+//                passenger(passenger.get()).
+//                build();
+//        System.out.println(booking.getId());
+//        bookingRepository.save(booking);
+//        System.out.println(booking.getId());
 
 
         System.out.println("******");
